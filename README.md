@@ -87,7 +87,7 @@ npx playwright test path/to/test-file.spec.js
 ```
    3. Vitest. To run the tests, execute:
 ```bash
-npm run test
+npm run test:unit
 ```
     This will run the tests and provide you with a report on whether they passed or failed.
 
