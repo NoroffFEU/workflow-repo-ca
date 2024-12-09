@@ -1,7 +1,8 @@
 import { CONFIG } from '../../config.js';
 
-export async function login(user) {
+export async function login(user, variable) {
 	const url = `${CONFIG.apiUrl}auth/login`;
+	console.log(variable);
 
 	const options = {
 		method: 'POST',
