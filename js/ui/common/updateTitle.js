@@ -1,3 +1,3 @@
 export function updateTitle(newTitle) {
-  document.title = newTitle;
+	document.title = newTitle;
 }
