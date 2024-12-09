@@ -8,7 +8,7 @@
     "lint": "npx eslint",
     "pretty": "npx prettier . --write",
     "prepare": "husky install",
-    "husky": "npm lint-staged"
+    "husky": "npx lint-staged"
   },
   "keywords": [],
   "author": "",
