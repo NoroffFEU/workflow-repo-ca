@@ -1,4 +1,5 @@
 node_modules/
+coverage/
 
 #lint cache
 .eslintcache
