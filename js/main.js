@@ -10,7 +10,7 @@ function initializeApp() {
 	logoutButtonListener();
 
 	const path = window.location.pathname;
-	console.log(path);
+	console.error(path);
 
 	if (path === '/' || path === '/index.html') {
 		displayVenueList();
