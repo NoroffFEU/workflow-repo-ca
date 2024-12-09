@@ -7,6 +7,7 @@ export default [
 		languageOptions: {
 			globals: {
 				...globals.browser,
+				...globals.node,
 				describe: true, // Used for grouping tests
 				test: true, // Used to create tests
 				it: true, // Alternative way to create tests
