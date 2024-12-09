@@ -18,4 +18,7 @@ export default [
 		},
 	},
 	pluginJs.configs.recommended,
+	{
+		ignores: ['.config/*', 'node_modules', 'coverage'],
+	},
 ];
