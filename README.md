@@ -2,7 +2,7 @@
 # Development Workflow Repository
 
 ## Overview
-This repository is designed to facilitate efficient development workflows using modern tools. It includes setups for linting, formatting, unit testing, and end-to-end (E2E) testing with ESLint, Prettier, Vitest, and Playwright, respectively.
+This repository is designed to facilitate efficient development workflows using modern tools. It includes setups for linting, formatting, unit testing, and end-to-end (E2E) testing with ESLint, Prettier, Vitest, and Playwright.
 
 ## How to Start
 
