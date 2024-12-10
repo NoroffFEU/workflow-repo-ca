@@ -3,13 +3,40 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  
   "scripts": {
-    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch"
+    "start": "vite",
+    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "prepare": "husky install",
+    "test": "vitest",
+    "playwright": "npx playwright test"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.html": [
+      "prettier --write"
+    ],
+    "*.css": [
+      "prettier --write"
+    ]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "tailwindcss": "^3.4.12"
+    "@playwright/test": "^1.49.1",
+    "eslint": "^8.50.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.2",
+    "tailwindcss": "^3.4.12",
+    "vite": "^4.0.0",
+    "vitest": "^0.34.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
   }
 }
