@@ -1,18 +1,18 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("navigation", () => {
-  test("navigate to home and open venue details", async ({ page }) => {
-    await page.goto("/"); // Go to the home page
-
-    // Wait for venue list to load
-    await page.waitForSelector(".venue-list");
-
-    // Click the first venue
-    await page.locator(".venue-list .venue-item:first-child").click();
-
-    // Verify the venue details page
-    await expect(
-      page.getByRole("heading", { name: "Venue details" }),
-    ).toBeVisible();
+test.describe("Navigation", () => {
+  test("Navigate to venue details", async ({ page }) => {
+    try {
+      await page.goto("/");
+      const venueContainer = page.locator("#venue-container");
+      await expect(venueContainer).toBeVisible({ timeout: 5000 });
+      const firstVenue = venueContainer.locator(".bg-cover").first();
+      await firstVenue.click();
+      const heading = page.getByRole("heading", { name: "Venue details" });
+      await expect(heading).toBeVisible({ timeout: 5000 });
+    } catch (error) {
+      console.error("Navigation test failed:", error);
+      throw error;
+    }
   });
 });
