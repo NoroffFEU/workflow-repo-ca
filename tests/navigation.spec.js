@@ -7,7 +7,7 @@ test.describe("Navigation", () => {
     await expect(venueContainer).toBeVisible();
     const firstVenue = venueContainer.locator(".bg-cover").first();
     await firstVenue.click();
-    const heading = page.getByRole("heading", { name: /Venue details/i });
+    const heading = page.getByRole("heading", { name: "Venue details" });
     await expect(heading).toBeVisible();
   });
 });
