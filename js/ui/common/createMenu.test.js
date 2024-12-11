@@ -1,6 +1,6 @@
-import { describe, expect, test } from 'vitest';
+import { beforeEach, describe, expect, test } from 'vitest';
 import { isActivePath } from '../../utils/userInterface';
-import { getUsername } from '../../utils/storage';
+import { getUsername, saveUser } from '../../utils/storage';
 
 describe('isActivePath', () => {
 	// 1. Returns true when current path matches href exactly
@@ -38,30 +38,30 @@ describe('isActivePath', () => {
 	});
 });
 
-describe('getUserName', () => {
+describe('getUsername', () => {
 	// 1 Test that it returns the name from the user object in storage (first save a user object to storage)
 	// 2 Test that it returns null when no user exists in storage
 
 	// 1
+	beforeEach(() => {
+		const storage = {};
+
+		global.localStorage = {
+			setItem: (key, value) => (storage[key] = value),
+			getItem: (key) => storage[key] || null,
+		};
+	});
+
 	test('returns the name from the user object in storage', () => {
-		const localStorageMock = (() => {
-			let store = {};
-			return {
-				setItem: (key, value) => (store[key] = value),
-				getItem: (key) => store[key] || null,
-				removeItem: (key) => delete store[key],
-				clear: () => (store = {}),
-			};
-		})();
-
-		Object.defineProperty(global, 'localStorage', {
-			value: localStorageMock,
-		});
-
 		const user = { name: 'someDude' };
-		localStorage.setItem('userKey', JSON.stringify(user));
-		console.log('Stored value:', localStorage.getItem('userKey'));
+		saveUser(user);
+		const result = getUsername();
+		expect(result).toBe('someDude');
+	});
 
-		expect(getUsername()).toBe('someDude');
+	test('returns null when no user exists in storage', () => {
+		// call getUsername without data present
+		const result = getUsername();
+		expect(result).toBe(null);
 	});
 });
