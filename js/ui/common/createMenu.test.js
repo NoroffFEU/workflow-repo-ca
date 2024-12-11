@@ -44,12 +44,7 @@ describe('getUsername', () => {
 
 	// 1
 	beforeEach(() => {
-		const storage = {};
-
-		global.localStorage = {
-			setItem: (key, value) => (storage[key] = value),
-			getItem: (key) => storage[key] || null,
-		};
+		localStorage.clear();
 	});
 
 	test('returns the name from the user object in storage', () => {

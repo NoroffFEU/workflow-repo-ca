@@ -4,6 +4,7 @@ export default defineConfig({
 	appType: 'mpa',
 	base: '',
 	test: {
+		environment: 'jsdom',
 		coverage: {
 			provider: 'istanbul',
 		},
