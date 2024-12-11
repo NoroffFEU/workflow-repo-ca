@@ -7,8 +7,29 @@ import { isActivePath } from '../../utils/userInterface';
 // 4. Returns false when paths don't match
 
 test('returns true when path matches', () => {
-	const href = '/href';
-	const currentPath = '/href';
+	const href = '/beans';
+	const currentPath = '/beans';
 
-	expect(isActivePath(href, currentPath).toBe(true));
+	expect(isActivePath(href, currentPath)).toBe(true);
+});
+
+test('returns true when path and href are both root', () => {
+	const href = '/';
+	const currentPath = '/index.html';
+
+	expect(isActivePath(href, currentPath)).toBe(true);
+});
+
+test('returns true when current path includes href', () => {
+	const href = '/path';
+	const currentPath = 'www.website.com/path';
+
+	expect(isActivePath(href, currentPath)).toBe(true);
+});
+
+test("returns false when paths don't match", () => {
+	const href = '/beansontoast';
+	const currentPath = 'www.website.com/path';
+
+	expect(isActivePath(href, currentPath)).toBe(false);
 });
