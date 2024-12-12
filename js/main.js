@@ -15,12 +15,45 @@ function initializeApp() {
   if (path === "/" || path === "/index.html") {
     displayVenueList();
   } else if (path.startsWith("/login")) {
-    loginFormListener();
+    loadPage();
   } else if (path.startsWith("/register")) {
-    registerFormListener();
+    loadPage();
   } else if (path.startsWith("/venue/")) {
     displayVenue();
   }
 }
 
-initializeApp();
+async function loadPage() {
+  const pageContent = document.querySelector("main");
+  const path = window.location.pathname;
+
+  try {
+    let response;
+
+    if (path === "/login") {
+      response = await fetch("./login/index.html");
+      if (response.ok) {
+        const loginHTML = await response.text();
+        pageContent.innerHTML = loginHTML;
+        loginFormListener();
+      }
+    } else if (path === "/register") {
+      response = await fetch("./register/index.html");
+      if (response.ok) {
+        const registerHTML = await response.text();
+        pageContent.innerHTML = registerHTML;
+        registerFormListener();
+      }
+    } else {
+      console.error("Failed to load login page:", response.statusText);
+      pageContent.innerHTML = "<p>Error loading login page.</p>";
+    }
+  } catch (error) {
+    console.error("Error fetching page content:", error);
+    pageContent.innerHTML = "<p>Unexpected error occurred.</p>";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initializeApp();
+});
