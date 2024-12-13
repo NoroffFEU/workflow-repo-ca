@@ -6,3 +6,5 @@ test-results/
 /playwright/.cache/
 .env
 /playwright-results/
+.eslintcache
+
