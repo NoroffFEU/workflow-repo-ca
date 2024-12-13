@@ -5,8 +5,8 @@ test.describe("Navigation", () => {
     page,
   }) => {
     await page.goto("/"); // Automatically uses baseURL from config
-    await page.waitForSelector(".venue-list"); // Wait for the venue list to load
-    const venueLink = await page.locator(".venue-list > li >> nth=0");
+
+    const venueLink = await page.locator("#venue-container a").first();
     await venueLink.click();
     await page.waitForSelector('h1:has-text("Venue details")');
     expect(await page.isVisible("text=Venue details")).toBeTruthy();
