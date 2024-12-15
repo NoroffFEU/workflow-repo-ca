@@ -41,8 +41,9 @@ Here are the available npm scripts:
 - npm run test: Run all unit tests using Vitest.
 ```
 3. End-To-End testing:
-
+```
 - npm run test:e2e: Run Playwright end-to-end tests.
+```
 
 4. Pre-Commit Hook:
 
@@ -57,7 +58,7 @@ TEST_USER_PASSWORD=
 ### Testing Overview
 
 **Unit Tests:**
-Unit tests are listed as test per source files.
+Unit tests are listed as tests per source files.
 Example:
 
 - storage.test.js: Verifies user retrieval from storage.
@@ -70,6 +71,3 @@ Example:
 - login.test.js: Tests valid/invalid login cases.
 - navigation.test.js: Tests venue list and detail page navigation.
 
-```
-
-```
