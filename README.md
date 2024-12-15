@@ -30,23 +30,28 @@ Make sure you have the following installed on your machine:
 Here are the available npm scripts:
 
 1. Linting and Formatting
+Run ESLint to check for code quality issues:
 ```
-npm run lint: Run ESLint to check for code quality issues.
+npm run lint
 ```
+Format the code using Prettier:
 ```
-npm run format: Format the code using Prettier.
+npm run format
 ```
 
 2. Unit Testing:
+Run all unit tests using Vitest:
 ```
-npm run test: Run all unit tests using Vitest.
+npm run test
 ```
 3. End-To-End testing:
+Run all Playwright tests and open the UI-based test runner:
 ```
-npm run test:e2e: Run all Playwright tests and open the UI-based test runner
+npm run test:e2e
 ```
+Run all Playwright tests directly:
 ```
-npx playwright test: Run all Playwright tests directly
+npx playwright test
 ```
 
 4. Pre-Commit Hook:
