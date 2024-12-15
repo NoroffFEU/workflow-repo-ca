@@ -8,8 +8,8 @@ This project demonstrates the implementation of efficient workflows for a develo
 
 Make sure you have the following installed on your machine:
 
-- [ ] Node.js (v16 or higher recommended)
-- [ ] npm (comes with Node.js)
+- Node.js (v16 or higher recommended)
+- npm (comes with Node.js)
 
 ### Installation
 
