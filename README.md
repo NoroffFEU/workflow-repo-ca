@@ -45,6 +45,7 @@ Run all unit tests using Vitest:
 npm run test
 ```
 3. End-To-End testing:
+
 Run all Playwright tests and open the UI-based test runner:
 ```
 npm run test:e2e
