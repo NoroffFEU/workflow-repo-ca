@@ -1,9 +1,9 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("login", () => {
-  //Successful path: User can login with valid userinfo
+  //Successful path: User can login with valid credentials
   test("user can login", async ({ page }) => {
-    await page.goto("login/index.html");
+    await page.goto("/login");
 
     await page.locator('input[name="email"]').fill(process.env.TEST_USER_EMAIL);
     await page
@@ -17,7 +17,7 @@ test.describe("login", () => {
 
   //Error Path: Wrong password shows error message
   test("wrong password shows error", async ({ page }) => {
-    await page.goto("/login/index.html");
+    await page.goto("/login");
 
     await page.locator('input[name="email"]').fill(process.env.TEST_USER_EMAIL);
     await page.locator('input[name="password"]').fill("wrongpassword");
@@ -31,7 +31,7 @@ test.describe("login", () => {
 
   //Error path: Wrong email shows error message
   test("wrong email shows error", async ({ page }) => {
-    await page.goto("/login/index.html");
+    await page.goto("/login");
 
     await page
       .locator('input[name="email"]')
