@@ -10,6 +10,18 @@ const { defineConfig, devices } = require("@playwright/test");
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
+
+export default defineConfig({
+  webServer: {
+    command: "npm run start",
+    url: "http://localhost:5500",
+    reuseExistingServer: !process.env.CI,
+  },
+  use: {
+    baseURL: "http://localhost:5500",
+  },
+});
+
 module.exports = defineConfig({
   testDir: "./tests",
   /* Run tests in files in parallel */
