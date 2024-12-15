@@ -31,17 +31,22 @@ Here are the available npm scripts:
 
 1. Linting and Formatting
 ```
-- npm run lint: Run ESLint to check for code quality issues.
-- npm run format: Format the code using Prettier.
+npm run lint: Run ESLint to check for code quality issues.
+```
+```
+npm run format: Format the code using Prettier.
 ```
 
 2. Unit Testing:
 ```
-- npm run test: Run all unit tests using Vitest.
+npm run test: Run all unit tests using Vitest.
 ```
 3. End-To-End testing:
 ```
-- npm run test:e2e: Run Playwright end-to-end tests.
+npm run test:e2e: Run all Playwright tests and open the UI-based test runner
+```
+```
+npx playwright test: Run all Playwright tests directly
 ```
 
 4. Pre-Commit Hook:
