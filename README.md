@@ -17,11 +17,10 @@ Make sure you have the following installed on your machine:
  ```
    git clone https://github.com/marned91/workflow-repo-ca.git
    ```
-
-3. Checkout the workflow branch:
+2. Checkout the workflow branch:
    git checkout workflow
 
-4. Install dependencies:
+3. Install dependencies:
    ```
    npm install
    ```
