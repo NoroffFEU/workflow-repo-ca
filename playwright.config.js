@@ -11,6 +11,8 @@ const { defineConfig, devices } = require("@playwright/test");
  * @see https://playwright.dev/docs/test-configuration
  */
 
+require("dotenv").config();
+
 export default defineConfig({
   webServer: {
     command: "npm run start",
