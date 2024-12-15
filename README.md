@@ -14,27 +14,32 @@ Make sure you have the following installed on your machine:
 ### Installation
 
 1. Clone the repository:
+ ```
    git clone https://github.com/marned91/workflow-repo-ca.git
+   ```
 
-2. Checkout the workflow branch:
+3. Checkout the workflow branch:
    git checkout workflow
 
-3. Install dependencies:
+4. Install dependencies:
+   ```
    npm install
+   ```
 
 ### Scripts
 
 Here are the available npm scripts:
 
 1. Linting and Formatting
-
+```
 - npm run lint: Run ESLint to check for code quality issues.
 - npm run format: Format the code using Prettier.
+```
 
 2. Unit Testing:
-
+```
 - npm run test: Run all unit tests using Vitest.
-
+```
 3. End-To-End testing:
 
 - npm run test:e2e: Run Playwright end-to-end tests.
