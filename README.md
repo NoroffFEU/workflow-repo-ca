@@ -18,7 +18,7 @@ Make sure you have the following installed on your machine:
    git clone https://github.com/marned91/workflow-repo-ca.git
    ```
 2. Checkout the workflow branch:
-   git checkout workflow
+   [git checkout workflow](https://github.com/marned91/workflow-repo-ca/tree/workflow)
 
 3. Install dependencies:
    ```
