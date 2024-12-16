@@ -81,3 +81,8 @@ Example:
 - login.test.js: Tests valid/invalid login cases.
 - navigation.test.js: Tests venue list and detail page navigation.
 
+## Contributing
+Thank you for your interest in this project! As this is an educational project, I am not accepting contributions at this time. The focus of this project is to showcase the skills and knowledge I have gained during the course.
+
+Thank you for your understanding!
+
