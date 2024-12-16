@@ -62,6 +62,7 @@ npx playwright test
 ### Environment Variables
 
 The project requires environment variables for running specific tests. Create a .env file in the root directory with the following keys:
+
 TEST_USER_EMAIL=
 TEST_USER_PASSWORD=
 
