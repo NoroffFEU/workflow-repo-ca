@@ -14,30 +14,46 @@ Make sure you have the following installed on your machine:
 ### Installation
 
 1. Clone the repository:
+ ```
    git clone https://github.com/marned91/workflow-repo-ca.git
-
+   ```
 2. Checkout the workflow branch:
-   git checkout workflow
+   [git checkout workflow](https://github.com/marned91/workflow-repo-ca/tree/workflow)
 
 3. Install dependencies:
+   ```
    npm install
+   ```
 
 ### Scripts
 
 Here are the available npm scripts:
 
 1. Linting and Formatting
-
-- npm run lint: Run ESLint to check for code quality issues.
-- npm run format: Format the code using Prettier.
+Run ESLint to check for code quality issues:
+```
+npm run lint
+```
+Format the code using Prettier:
+```
+npm run format
+```
 
 2. Unit Testing:
-
-- npm run test: Run all unit tests using Vitest.
-
+Run all unit tests using Vitest:
+```
+npm run test
+```
 3. End-To-End testing:
 
-- npm run test:e2e: Run Playwright end-to-end tests.
+Run all Playwright tests and open the UI-based test runner:
+```
+npm run test:e2e
+```
+Run all Playwright tests directly:
+```
+npx playwright test
+```
 
 4. Pre-Commit Hook:
 
@@ -46,13 +62,13 @@ Here are the available npm scripts:
 ### Environment Variables
 
 The project requires environment variables for running specific tests. Create a .env file in the root directory with the following keys:
-TEST_USER_EMAIL=
-TEST_USER_PASSWORD=
+- TEST_USER_EMAIL=
+- TEST_USER_PASSWORD=
 
 ### Testing Overview
 
 **Unit Tests:**
-Unit tests are listed as test per source files.
+Unit tests are listed as tests per source files.
 Example:
 
 - storage.test.js: Verifies user retrieval from storage.
@@ -65,6 +81,8 @@ Example:
 - login.test.js: Tests valid/invalid login cases.
 - navigation.test.js: Tests venue list and detail page navigation.
 
-```
+## Contributing
+Thank you for your interest in this project! As this is an educational project, I am not accepting contributions at this time. The focus of this project is to showcase the skills and knowledge I have gained during the course.
 
-```
+Thank you for your understanding!
+
