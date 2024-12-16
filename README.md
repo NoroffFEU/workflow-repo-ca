@@ -14,7 +14,7 @@ Make sure you have the following installed on your machine:
 ### Installation
 
 1. Clone the repository:
- ```
+   ```bash
    git clone https://github.com/marned91/workflow-repo-ca.git
    ```
 2. Checkout the workflow branch:
@@ -24,46 +24,57 @@ Make sure you have the following installed on your machine:
    ```
    npm install
    ```
+### Environment Variables
+
+The project requires environment variables for running specific tests. A .env.example file is included in the root directory to guide setup, with the following keys:
+- TEST_USER_EMAIL=
+- TEST_USER_PASSWORD=
+
+To configure environment variables:
+
+1. Create a .env file in the root directory.
+2. Copy the contents of .env.example into .env and fill in the values.
+   
+Note: The .env file is ignored for security reasons.
+
 
 ### Scripts
 
 Here are the available npm scripts:
 
-1. Linting and Formatting
-Run ESLint to check for code quality issues:
+1. Start the development server:
+   Start the server on port 5500 using Live Server:
+   ```
+   npm run start
+   ```
+   
+2. Linting and Formatting
+Run ESLint on the project to check for code quality issues:
 ```
-npm run lint
+   npx eslint
 ```
 Format the code using Prettier:
 ```
-npm run format
+   npx prettier . --write
 ```
 
-2. Unit Testing:
+3. Unit Testing:
 Run all unit tests using Vitest:
 ```
-npm run test
+   npm run test:unit
 ```
-3. End-To-End testing:
+
+4. End-To-End testing:
 
 Run all Playwright tests and open the UI-based test runner:
 ```
-npm run test:e2e
-```
-Run all Playwright tests directly:
-```
-npx playwright test
+   npm run test:e2e
 ```
 
-4. Pre-Commit Hook:
+5. Pre-Commit Hook:
 
-- Automatically lints and formats code before committing. Set up via husky and lint-staged.
-
-### Environment Variables
-
-The project requires environment variables for running specific tests. Create a .env file in the root directory with the following keys:
-- TEST_USER_EMAIL=
-- TEST_USER_PASSWORD=
+- Automatically lints and formats code before committing, using Husky and lint-staged.
+  
 
 ### Testing Overview
 
