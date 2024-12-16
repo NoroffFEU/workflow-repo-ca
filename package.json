@@ -6,17 +6,22 @@
   "scripts": {
     "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
     "prepare": "husky install",
-    "test": "vitest"
+    "test:unit": "vitest",
+    "test:e2e": "playwright test",
+    "start": "live-server --port=5500"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@playwright/test": "^1.49.1",
+    "dotenv": "^16.4.7",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.13.0",
+    "playwright": "^1.49.1",
     "prettier": "^3.4.2",
     "tailwindcss": "^3.4.12",
     "vitest": "^2.1.8"
@@ -45,6 +50,7 @@
     "concat-map": "^0.0.1",
     "cross-spawn": "^7.0.6",
     "cssesc": "^3.0.0",
+    "D": "^1.0.0",
     "debug": "^4.4.0",
     "deep-is": "^0.1.4",
     "didyoumean": "^1.2.2",
@@ -96,6 +102,7 @@
     "levn": "^0.4.1",
     "lilconfig": "^2.1.0",
     "lines-and-columns": "^1.2.4",
+    "live-server": "^1.2.2",
     "locate-path": "^6.0.0",
     "lodash.merge": "^4.6.2",
     "lru-cache": "^10.4.3",
