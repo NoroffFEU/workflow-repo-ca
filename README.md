@@ -128,9 +128,4 @@ This project is licensed under Noroff and is part of the curriculum for the Fron
 
 ---
 
-### Author
-Emily Brynestad
-
----
-
 Thanks for reviewing! 
