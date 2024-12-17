@@ -123,9 +123,14 @@ This project is submitted as part of the Workflow Course Assignment. All changes
 
 ---
 
+## License
+This project is licensed under Noroff and is part of the curriculum for the Front-End Development program.
+
+---
+
 ### Author
 Emily Brynestad
 
 ---
 
-Thank you for reviewing! 😊
+Thanks for reviewing! 
