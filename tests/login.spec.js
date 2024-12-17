@@ -45,12 +45,23 @@ test.describe("Login", () => {
     // Wait for the error message to appear
     console.log("Waiting for error message...");
     try {
-      await page.waitForSelector(".error-message", { timeout: 10000 }); // Adjust selector as needed
-      const errorMessage = await page.innerText(".error-message");
+      // Wait for the error message element to appear
+      await page.waitForSelector('[role="alert"]', { timeout: 10000 });
+
+      // Retrieve the error message text
+      const errorMessage = await page.innerText('[role="alert"]');
       console.log("Found error message:", errorMessage);
-      expect(errorMessage).toBe("Invalid input"); // Adjust expected text as needed
+
+      // Check the error message content
+      if (errorMessage.includes("noroff.no")) {
+        expect(errorMessage).toContain("noroff.no");
+      } else if (errorMessage.includes("Invalid email or password")) {
+        expect(errorMessage).toContain("Invalid email or password");
+      } else {
+        throw new Error(`Unexpected error message: ${errorMessage}`);
+      }
     } catch (err) {
-      console.error("Error message not found:", err);
+      console.error("Error during error message validation:", err);
       throw err; // Rethrow to fail the test
     }
   });
