@@ -14,3 +14,9 @@ npm install
   - ESLint
   - Prettier
   - Globals
+<details>
+  <summary>Install Dependencies</summary>
+  
+  To set up the project dependencies, run the following command:
+  ```bash
+  npm install
