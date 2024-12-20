@@ -35,8 +35,11 @@ TypeScript Support
 - Type definitions (`@types/node`)
 ```
 ### Vitest
-Test files for Vitest can be found in ../js/utils/ folder name _test_.
-/js
-  /utils
-    /__tests__  (or /tests)
-      utils.test.js
+Test files for Vitest can be found in /js/utils/_test_.
+- To run tests for vitest use followind command:
+```bash
+npx vitest test
+or
+npm run test
+
+```
