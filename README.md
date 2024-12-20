@@ -7,13 +7,13 @@ This forked repository is equipped with modern tools for ensuring code quality, 
 https://github.com/senbet22/workflow-repo-ca-senbet.git
 ```
 ## 2. Install NPM packages
+To install all required project dependencies, run the following command:
 ```bash
 npm install
 ```
 <details>
   <summary>Install Dependencies</summary>
   
-  To set up the project dependencies, run the following command:
   ```bash
 Linting & Formatting
 - ESLint
