@@ -43,15 +43,19 @@ Test files for Vitest can be found in /js/utils/_test_.
 npx vitest test
 or
 npm run test
-
+```
+- To run a single file test, add file name at the end:
+```bash
+npx vitest test example.vitest.js
 ```
 
 ### Vitest
 Test files for Vitest can be found in /js/utils/_test_.
 - To run tests for Vitest, use the following command:
 ```bash
-npx vitest test
-or
-npm run test
-
+npx playwright test
+```
+- To run a single file test, add file name at the end:
+```bash
+npx vitest test example.vitest.js
 ```
