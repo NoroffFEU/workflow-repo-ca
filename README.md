@@ -66,3 +66,12 @@ npx playwright test example.spec.js
   TEST_USER_EMAIL = example@stud.noroff.no
   TEST_USER_PASSWORD = example123
   ```
+**Note:** This is just an example. Replace these values with your actual email and password you would use to login.
+
+2. Make sure that the .env file is located at the root of your project.
+3. For security purposes add .env file inside the .gitignore, this ensures that sensitive info, like login details are only stored locally.
+4. 
+```bash
+# Ignore .env files
+.env
+```
