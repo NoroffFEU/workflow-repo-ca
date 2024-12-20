@@ -12,7 +12,7 @@ To install all required project dependencies, run the following command:
 npm install
 ```
 <details>
-  <summary>Install Dependencies</summary>
+  <summary>Installed Dependencies</summary>
   
   ```bash
 Linting & Formatting
