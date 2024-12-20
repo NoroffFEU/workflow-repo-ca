@@ -1,33 +1,47 @@
-# Workflow repo for the CA
+# Workflow Course Assignment
 
-## Set Up Repo and Development Tools
+This is my contribution to the course assignment for workflow at [Noroff School of Technology and Digital Media].
 
-[x] Fork Repo
-[x] Create branch named workflow
-[] Install and configure ESLint, must be configured to handle the globals used in the test files
-[] Install and configure Prettier
-[] Set up commit hooks to ensure staged code is checked before being commited. Format HTML files and formant and lint javascript files.
+This was the goal of the project:
 
-## Set Up Testing Tools
+- Install and configure **ESLint** and **Prettier** for consistent code quality.
+- **Husky** and **Lint-Staged** for commit hooks to ensure code is linted and formatted before commits.
+- Unit tests written with **Vitest** to ensure critical utility functions work as expected.
+- End-to-end tests written with **Playwright** to validate key user flows, such as logging in and navigating to venue details.
 
-[] Install and configure Vitest for unit testing and test these cases:
-[] isActivePath Function: - Returns true when current path matches href exactly - Returns true for root path (/) when path is "/" or "/index.html" - Returns true when current path includes the href - Returns false when paths dont match
+## How to Install
 
-    [] getUserName Function:
-    		- Test that it returns the name from the user object i storage (first save a user object to storage)
-    		- Test that it returns null when no user exists in storage
+1. Clone the repo
+2. Install dependencies by running "npm install" in the terminal
+3. Start the development server by running "npm run dev" in the terminal
 
-[] Install and configure Playwright for e2e testing and test these two cases:
-[] login: - User can successfully lof in with valid credentials from environment variables (If the login details from the lesson do not work you can create a new usr by running the project and using the register form) - User sees and error message with invalid credentials - Be sure to include .env in the gitignore and include an .env.example in the branch
-[] navigation:
-Write a test that: - Navigates to the home page - Waits for the venue list to load - Click the first venue - Verfies that when the venue details page loads there are the words "venue details" in the heading
+## Environment variables
 
-## Update READEME:
+Create a .env file in the root directory based on .env.example. Add the following variables:
 
-     [] Update to include the instructions for the repo. ex npm install, npm run test, and any other script uou add to the project. It should also include the name of the required encironment variables (not the values).
+- LOGIN_EMAIL=<your_test_email>
+- LOGIN_PASSWORD=<your_test_password>
 
-## Submit Work:
+## Code Style and Linting
 
-    	- Open a Pull Request from your workflow branch into your default branch
-    	- Do not merge the PR
-    	- Submit the PR link on moodle.
+Code quality is enforced using ESLint and Prettier.
+
+- To run ESLint on the entire project: "npx eslint" in the terminal
+- To run Prettier on the entire project: "npx prettier . --write" in the terminal
+
+## Testing
+
+- Unit Tests are written with Vitest: "npm run vitest" in the terminal to run test.
+- End-to-End Tests are written with Playwright: "npm run playwright" in the terminal to run tests
+
+## Technoloies used
+
+- HTML
+- CSS
+- Vanilla Javascript
+- Node.js
+- Vite
+- ESLint and Prettier
+- Husky and Lint-Staged (commit hooks)
+- Vitest (unit testing)
+- Playwright (end-to-end testing)

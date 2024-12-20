@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
     "prepare": "husky install",
-    "test": "vitest",
+    "vitest": "vitest",
+	  "playwright": "npx playwright test --headed",
     "start": "live-server --port=5500"
   },
   "keywords": [],
