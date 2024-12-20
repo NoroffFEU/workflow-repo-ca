@@ -52,11 +52,16 @@ npx vitest test example.vitest.js
 ### Playwright
 Playwright test folder can be found at the root in the **tests**
  folder.
-- To run tests for Vitest, use the following command:
+- To run tests for Playwright, use the following command:
 ```bash
 npx playwright test
 ```
 - To run a single file test, add file name at the end:
 ```bash
-npx vitest test example.vitest.js
+npx playwright test example.spec.js
 ```
+### .env content
+1. Copy the example below inside .env
+  ```bash
+  npx playwright test example.spec.js
+  ```
