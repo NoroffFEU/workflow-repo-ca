@@ -34,6 +34,7 @@ Testing
 TypeScript Support
 - Type definitions (`@types/node`)
 ```
+</details>
 ### Vitest
 Test files for Vitest can be found in /js/utils/_test_.
 - To run tests for vitest use followind command:
