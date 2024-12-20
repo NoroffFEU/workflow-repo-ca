@@ -63,5 +63,6 @@ npx playwright test example.spec.js
 ### .env content
 1. Copy the example below inside .env
   ```bash
-  npx playwright test example.spec.js
+  TEST_USER_EMAIL = example@stud.noroff.no
+  TEST_USER_PASSWORD = example123
   ```
