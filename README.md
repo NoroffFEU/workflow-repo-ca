@@ -49,8 +49,9 @@ npm run test
 npx vitest test example.vitest.js
 ```
 
-### Vitest
-Test files for Vitest can be found in /js/utils/_test_.
+### Playwright
+Playwright test folder can be found at the root in the **tests**
+ folder.
 - To run tests for Vitest, use the following command:
 ```bash
 npx playwright test
