@@ -37,7 +37,7 @@ TypeScript Support
 </details>
 
 ### Vitest
-Test files for Vitest can be found in /js/utils/_test_.
+Test files for Vitest can be found in /js/utils/\_test_.
 - To run tests for vitest use followind command:
 ```bash
 npx vitest test
