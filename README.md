@@ -45,3 +45,13 @@ or
 npm run test
 
 ```
+
+### Vitest
+Test files for Vitest can be found in /js/utils/_test_.
+- To run tests for Vitest, use the following command:
+```bash
+npx vitest test
+or
+npm run test
+
+```
