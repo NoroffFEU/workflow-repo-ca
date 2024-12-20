@@ -10,13 +10,26 @@ https://github.com/senbet22/workflow-repo-ca-senbet.git
 ```bash
 npm install
 ```
-> NPM installed packages
-  - ESLint
-  - Prettier
-  - Globals
 <details>
   <summary>Install Dependencies</summary>
   
   To set up the project dependencies, run the following command:
   ```bash
-  npm install
+Linting & Formatting
+- ESLint
+- Prettier
+- Globals
+
+Development Tools
+- TailwindCSS
+- Live Server
+- dotenv
+- Husky (for Git hooks)
+
+Testing
+- Playwright
+- Vitest
+- JSDOM
+
+TypeScript Support
+- Type definitions (`@types/node`)
