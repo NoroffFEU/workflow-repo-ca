@@ -29,7 +29,7 @@ Development Tools
 Testing
 - Playwright
 - Vitest
-- JSDOM
+- JSDOM (for mock-up localStorage testing)
 
 TypeScript Support
 - Type definitions (`@types/node`)
