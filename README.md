@@ -10,3 +10,7 @@ https://github.com/senbet22/workflow-repo-ca-senbet.git
 ```bash
 npm install
 ```
+- NPM installed packages
+  - ESLint
+  - Prettier
+  - Globals
