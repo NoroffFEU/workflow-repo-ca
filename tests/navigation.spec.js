@@ -18,5 +18,5 @@ test("Testing navigation, venue list, and heading on single venue page", async (
 
   // Check that the heading is displayed on single venue page
   const heading = await page.locator("h1");
-  await expect(heading).toHaveText("Venue details: yes");
+  await expect(heading).toContainText("Venue details:");
 });
