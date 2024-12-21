@@ -31,7 +31,7 @@ Code quality is enforced using ESLint and Prettier.
 
 ## Testing 👩🏽‍🔬
 
-- Unit Tests are written with Vitest: "npm run vitest" in the terminal to run test.
+- Unit Tests are written with Vitest: "npm run vitest" in the terminal to run tests
 - End-to-End Tests are written with Playwright: "npm run playwright" in the terminal to run tests
 
 ## Technoloies used ⚡️
