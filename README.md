@@ -118,4 +118,4 @@ This project is submitted as part of the Workflow Course Assignment. All changes
 This submission is under the license of Noroff Educational School. 
 ---
 
-Thank you for reviewing! 😊
+Thanks for reviewing! 
