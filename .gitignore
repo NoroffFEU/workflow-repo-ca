@@ -1,3 +1,4 @@
+#dependencies
 node_modules/
 coverage/
 
@@ -6,3 +7,7 @@ coverage/
 
 #lint cache
 .eslintcache
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
