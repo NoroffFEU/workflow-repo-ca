@@ -8,6 +8,7 @@ export default defineConfig({
 		coverage: {
 			provider: 'istanbul',
 		},
+		exclude: ['**/*.spec.js', '**/node_modules/**', '**/coverage/**'],
 	},
 	build: {
 		target: 'esnext',
