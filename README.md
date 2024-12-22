@@ -101,11 +101,11 @@ VITE_LOGIN_PASSWORD | Your valid login password
 ---
 
 ## Scripts Summary
-`npm start` - start the development server.
-`npm run lint` - run ESLint on JS files.
-`npm run format` - run prettier to format all files.
-`npm run test:unit` - run vitest unit tests.
-`npm run test:e2d` - run playwright end to end tests. 
+- `npm start` - start the development server.
+- `npm run lint` - run ESLint on JS files.
+- `npm run format` - run prettier to format all files.
+- `npm run test:unit` - run vitest unit tests.
+- `npm run test:e2d` - run playwright end to end tests. 
 
 ---
 
