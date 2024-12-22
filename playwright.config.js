@@ -2,7 +2,7 @@ import { defineConfig } from "@playwright/test";
 require("dotenv").config();
 
 export default defineConfig({
-  testDir: "tests/e2e",
+  testDir: "./tests/e2e",
   fullyParallel: false,
   webServer: {
     command: "npm run start",
