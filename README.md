@@ -59,7 +59,7 @@ npm run test:e2e
 ---
 
 ## Pre-commit Hooks
-Pre-commit hooks have been set up using **Husky** and **lint-staged**. Before committing, the following tasks are automatically performed:
+Pre-commit hooks have been set up using Husky and lint-staged. Before committing, the following tasks are automatically performed:
 
 1. Linting JavaScript files
 2. Formatting HTML, CSS, JavaScript, and Markdown files
@@ -70,14 +70,8 @@ No action is needed; the hooks will run automatically on staged files when commi
 
 ## Environment Variables
 Create a `.env` file in the root directory based on the `.env.example` file:
-
-### Required Environment Variables
-| Variable             | Description                        |
-|----------------------|------------------------------------|
-| `VITE_LOGIN_USERNAME` | Your valid login email             |
-| `VITE_LOGIN_PASSWORD` | Your valid login password          |
-
----
+VITE_LOGIN_USERNAME | Your valid login email
+VITE_LOGIN_PASSWORD | Your valid login password
 
 ## Testing Scenarios
 ### 1. **Unit Tests**
@@ -103,18 +97,15 @@ Create a `.env` file in the root directory based on the `.env.example` file:
 
 ## Additional Notes
 - Ensure `.env` is **not committed** by adding it to `.gitignore`.
-- Update the `README.md` file whenever changes are made to scripts or setup processes.
 
 ---
 
 ## Scripts Summary
-| Command             | Description                             |
-|----------------------|-----------------------------------------|
-| `npm start`          | Start the development server            |
-| `npm run lint`       | Run ESLint on JavaScript files          |
-| `npm run format`     | Run Prettier to format all files        |
-| `npm run test:unit`  | Run Vitest unit tests                   |
-| `npm run test:e2e`   | Run Playwright end-to-end tests         |
+`npm start` - start the development server.
+`npm run lint` - run ESLint on JS files.
+`npm run format` - run prettier to format all files.
+`npm run test:unit` - run vitest unit tests.
+`npm run test:e2d` - run playwright end to end tests. 
 
 ---
 
@@ -123,9 +114,8 @@ This project is submitted as part of the Workflow Course Assignment. All changes
 
 ---
 
-### Author
-Emily Brynestad
-
+### License
+This submission is under the license of Noroff Educational School. 
 ---
 
 Thank you for reviewing! 😊
