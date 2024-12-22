@@ -1,9 +1,16 @@
 import { defineConfig } from "@playwright/test";
+require("dotenv").config();
 
 export default defineConfig({
-  testDir: "./tests/e2e", // Define where the tests are stored
-  use: {
-    baseURL: "http://localhost:5173", // Define your development server base URL
-    headless: true, // Run tests in headless mode by default
+  testDir: "tests/e2e",
+  fullyParallel: false,
+  webServer: {
+    command: "npm run start",
+    url: "http://localhost:5500",
+    reuseExistingServer: !process.env.CI,
   },
+  use: {
+    baseURL: "http://localhost:5500",
+  },
+  reporter: [["html", { open: "on-failure" }]],
 });
