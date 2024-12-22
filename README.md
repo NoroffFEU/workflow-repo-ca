@@ -70,8 +70,8 @@ No action is needed; the hooks will run automatically on staged files when commi
 
 ## Environment Variables
 Create a `.env` file in the root directory based on the `.env.example` file:
-VITE_LOGIN_USERNAME | Your valid login email
-VITE_LOGIN_PASSWORD | Your valid login password
+- VITE_LOGIN_USERNAME | Your valid login email
+- VITE_LOGIN_PASSWORD | Your valid login password
 
 ## Testing Scenarios
 ### 1. **Unit Tests**
