@@ -1,5 +1,8 @@
 node_modules/
 coverage/
 
+#environment variables
+.env
+
 #lint cache
 .eslintcache
