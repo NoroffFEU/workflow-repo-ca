@@ -1,4 +1,4 @@
-.env
+*.env
 
 node_modules/
 TEST_USERNAME=your_test_username
