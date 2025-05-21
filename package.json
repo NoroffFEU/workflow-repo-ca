@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "vitest",
     "prepare": "husky install",
     "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch"
   },
@@ -14,11 +15,14 @@
     "@eslint/js": "^9.27.0",
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-vitest": "^0.5.4",
     "globals": "^16.1.0",
     "husky": "^9.1.7",
+    "jsdom": "^26.1.0",
     "lint-staged": "^16.0.0",
     "prettier": "^3.5.3",
-    "tailwindcss": "^3.4.12"
+    "tailwindcss": "^3.4.12",
+    "vitest": "^3.1.4"
   },
   "lint-staged": {
     "*.js": [
