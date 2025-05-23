@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { isActivePath } from '../js/utils/userInterface.js';
 import { getUsername } from '../js/utils/storage.js';
+
 describe('isActivePath', () => {
   it('returns true when current path matches href exactly', () => {
     expect(isActivePath('/about.html', '/about.html')).toBe(true);
