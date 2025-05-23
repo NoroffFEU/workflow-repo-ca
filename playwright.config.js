@@ -5,4 +5,9 @@ export default defineConfig({
   use: {
     baseURL: 'http://127.0.0.1:5500/',
   },
+  webServer: {
+    command: 'npm run start',
+    url: 'http://127.0.0.1:5500',
+    reuseExistingServer: true,
+  },
 });

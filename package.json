@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "vitest",
-    "prepare": "husky install",
     "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
-    "start": "live-server --port=5500"
+    "start": "live-server --port=5500",
+    "prepare": "husky install",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "vitest",
+    "test:e2e": "playwright test",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
