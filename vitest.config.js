@@ -1,4 +1,8 @@
 import { defineConfig } from 'vitest/config';
 export default defineConfig({
-  test: { environment: 'jsdom', include: ['**/*.{test,spec}.js'] },
+  test: {
+    environment: 'jsdom',
+    include: ['tests/unit/**/*.{test,spec}.js'],
+    exclude: ['tests/e2e/**', 'node_modules/**', 'dist/**', '.playwright/**'],
+  },
 });
