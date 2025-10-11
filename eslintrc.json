@@ -1,0 +1,12 @@
+{
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "vitest/globals": true
+  },
+  "plugins": ["prettier", "vitest"],
+  "rules": {
+    "prettier/prettier": ["error"]
+  }
+}
