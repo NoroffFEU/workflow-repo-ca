@@ -23,7 +23,7 @@ jobs:
 
       - run: npm run format -- --check
 
-      - run: npm run test:unit -- --ci --reporter=dot
+      - run: npm run test:unit -- --reporter=dot
 
       - run: npm run test:e2e -- --reporter=dot
         env:
