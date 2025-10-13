@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [renate-wfl, main]
+  pull_request:
+    branches: [renate-wfl, main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - run: npm install
+
+      - run: npm run lint
+
+      - run: npm run format -- --check
+
+      - run: npm run test:unit -- --ci --reporter=dot
+
+      - run: npm run test:e2e -- --reporter=dot
+        env:
+          TEST_USER_EMAIL: ${{ secrets.TEST_USER_EMAIL }}
+          TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
