@@ -17,13 +17,14 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm install
+      - run: npm ci
 
       - run: npm run lint
-
       - run: npm run format -- --check
 
-      - run: npm run test:unit -- --reporter=dot
+      - run: npm run test:unit -- --reporter=dot --run
+
+      - run: npx playwright install
 
       - run: npm run test:e2e -- --reporter=dot
         env:
