@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint",
+    "format": "prettier --write .",
     "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
     "prepare": "husky",
-    "test": "vitest",
-    "test:e2e": "playwright test",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:e2e": "playwright test tests",
+    "test:unit": "vitest --run",
     "start": "live-server --port=5500"
   },
   "lint-staged": {
