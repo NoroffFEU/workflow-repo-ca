@@ -31,3 +31,6 @@ jobs:
 
       - name: Run e2e tests
         run: npm run test:e2e
+        env:
+          TEST_EMAIL: ${{ secrets.TEST_EMAIL || 'test@example.com' }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD || 'testpassword123' }}
