@@ -22,7 +22,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: "npx serve -l 5500",
+    command: "npm run dev",
     url: "http://127.0.0.1:5500",
     reuseExistingServer: !process.env.CI,
   },
