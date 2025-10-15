@@ -1,6 +1,8 @@
 name: Run Unit and E2E Tests
 
 on:
+  push:
+    branches: [main, workflow]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -25,7 +27,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run unit tests
-        run: npm run unit
+        run: npm run test:unit
 
       - name: Run e2e tests
-        run: npm run e2e
+        run: npm run test:e2e
