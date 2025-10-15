@@ -12,7 +12,9 @@
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:report": "playwright show-report",
     "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "unit": "vitest",
+    "e2e": "playwright test"
   },
   "keywords": [],
   "author": "",
