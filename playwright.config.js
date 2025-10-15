@@ -22,8 +22,9 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: "npm run start",
+    command: "python3 -m http.server 5500",
     url: "http://127.0.0.1:5500",
     reuseExistingServer: !process.env.CI,
+    timeout: 120000,
   },
 });
