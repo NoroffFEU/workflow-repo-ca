@@ -1,4 +1,45 @@
-# Workflow - Repo for CA
+# Workflow - Course Assignment
+
+> **Course:** FED2-24 Workflow  
+> **Students:** Sergiu Sarbu ([@sergiu-sa](https://github.com/sergiu-sa)) & Muhammad Khan ([@Hammadniazi](https://github.com/Hammadniazi))  
+> **Repository:** [workflow-repo-ca](https://github.com/Hammadniazi/workflow-repo-ca)
+
+This project demonstrates modern JavaScript development workflow practices including automated testing, code quality tools, and continuous integration.
+
+---
+
+## Table of Contents
+
+- [Workflow - Course Assignment](#workflow---course-assignment)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+    - [Required Variables](#required-variables)
+    - [Local Setup](#local-setup)
+    - [GitHub Secrets (for CI)](#github-secrets-for-ci)
+  - [Available Scripts](#available-scripts)
+    - [Development](#development)
+    - [Testing Scripts](#testing-scripts)
+  - [Testing](#testing)
+    - [Unit Tests](#unit-tests)
+      - [`isActivePath` Function](#isactivepath-function)
+      - [`getUserName` Function](#getusername-function)
+      - [Running Unit Tests](#running-unit-tests)
+    - [End-to-End (E2E) Tests](#end-to-end-e2e-tests)
+      - [Login Tests](#login-tests)
+      - [Navigation Tests](#navigation-tests)
+    - [Running E2E Tests](#running-e2e-tests)
+  - [Technologies Used](#technologies-used)
+    - [Core](#core)
+    - [Build \& Development Tools](#build--development-tools)
+    - [Testing Frameworks](#testing-frameworks)
+    - [Code Quality Tools](#code-quality-tools)
+    - [API](#api)
+  - [Project Structure](#project-structure)
+  - [Contributors](#contributors)
+  - [License](#license)
+
+---
 
 ## Installation
 
@@ -6,29 +47,53 @@
 npm install
 ```
 
+This will install all dependencies including:
+
+- Testing frameworks (Vitest, Playwright)
+- Code quality tools (ESLint, Prettier, Husky)
+- Build tools (Tailwind CSS)
+
+---
+
 ## Environment Variables
 
 This project uses environment variables for sensitive data like test credentials.
 
-**Required variables:**
+### Required Variables
 
 - `TEST_EMAIL` - Email for E2E test login
 - `TEST_PASSWORD` - Password for E2E test login
 
-**Setup:**
+### Local Setup
 
-1. Copy `.env.example` to `.env`:
+1. **Copy the example file:**
 
    ```bash
    cp .env.example .env
    ```
 
-2. Fill in your credentials in `.env`:
+2. **Fill in your credentials in `.env`:**
 
    ```bash
    TEST_EMAIL=your-email@stud.noroff.no
    TEST_PASSWORD=your-password
    ```
+
+3. **Important:** Never commit your `.env` file! It's already in `.gitignore`.
+
+### GitHub Secrets (for CI)
+
+For GitHub Actions to run tests, the repository owner must add these secrets:
+
+1. Go to **Settings** → **Secrets and variables** → **Actions**
+2. Click **New repository secret**
+3. Add:
+   - Name: `TEST_EMAIL` | Value: Your test email
+   - Name: `TEST_PASSWORD` | Value: Your test password
+
+These secrets allow automated tests to run on every pull request.
+
+---
 
 ## Available Scripts
 
@@ -38,18 +103,29 @@ This project uses environment variables for sensitive data like test credentials
 npm run dev                    # Start Tailwind CSS watch mode
 ```
 
-### Testing Development
+Watches for changes in `css/input.css` and recompiles to `css/style.css`.
+
+### Testing Scripts
 
 ```bash
+# Unit tests (Vitest)
 npm test                       # Run unit tests in watch mode
-npm run test:run              # Run unit tests once
-npm run test:e2e              # Run all e2e tests
-npm run test:e2e:ui           # Run e2e tests in UI mode
-npm run test:e2e:headed       # Run e2e tests in headed mode
+npm run test:run              # Run unit tests once (CI mode)
+
+# E2E tests (Playwright)
+npm run test:e2e              # Run all e2e tests (all browsers)
+npm run test:e2e:ui           # Run e2e tests in UI mode (interactive)
+npm run test:e2e:headed       # Run e2e tests in headed mode (see browser)
 npm run test:e2e:report       # Show e2e test report
+
+# Alternative commands (same as above)
+npm run unit                   # Same as npm test
+npm run e2e                    # Same as npm run test:e2e
 ```
 
-## Testing Tools
+---
+
+## Testing
 
 This project uses **Vitest** for unit testing and **Playwright** for end-to-end (e2e) testing.
 
@@ -61,7 +137,7 @@ Unit tests verify that individual functions work correctly in isolation.
 
 #### `isActivePath` Function
 
-Tests navigation link highlighting logic.
+Tests navigation link highlighting logic to determine which menu item should be active.
 
 **Test file:** `js/utils/isActivePath.test.js`
 
@@ -75,13 +151,13 @@ Tests navigation link highlighting logic.
 **Example:**
 
 ```javascript
-isActivePath('/venue/123', '/venue'); // returns true
-isActivePath('/login', '/register'); // returns false
+isActivePath("/venue/123", "/venue"); // returns true
+isActivePath("/login", "/register"); // returns false
 ```
 
 #### `getUserName` Function
 
-Retrieves the logged-in user's name from localStorage.
+Retrieves the logged-in user's name from localStorage after authentication.
 
 **Test file:** `js/utils/getUserName.test.js`
 
@@ -96,28 +172,28 @@ Retrieves the logged-in user's name from localStorage.
 **Example:**
 
 ```javascript
-// After login, user data is stored in localStorage
+// After successful login:
 getUserName(); // returns "Sergiu"
 
-// When no user is logged in
+// When no user is logged in:
 getUserName(); // returns null
 ```
 
 #### Running Unit Tests
 
-**Run all tests in watch mode:**
+**Watch mode (development):**
 
 ```bash
 npm test
 ```
 
-**Run tests once (CI mode):**
+**Run once (CI mode):**
 
 ```bash
 npm run test:run
 ```
 
-**Expected output when all tests pass:**
+**Expected output:**
 
 ```bash
 ✓ js/utils/isActivePath.test.js (4 tests)
@@ -127,30 +203,34 @@ Test Files  2 passed (2)
 Tests  9 passed (9)
 ```
 
+---
+
 ### End-to-End (E2E) Tests
 
 E2E tests verify that the application works correctly from the user's perspective by simulating real user interactions in a browser.
 
 **Location:** `e2e/`
 
+**Browsers tested:** Chromium, Firefox, WebKit (Safari)
+
 #### Login Tests
 
-Tests user authentication functionality.
+Tests user authentication functionality with the Noroff API.
 
 **Test file:** `e2e/login.spec.js`
 
 **What it tests:**
 
-- ✅ User can successfully log in with valid credentials from environment variables
-- ✅ User sees an error message with invalid credentials
+1. ✅ **Successful login:** User can log in with valid credentials from environment variables
+   - Fills in email and password
+   - Clicks login button
+   - Verifies redirect to home page
+   - Verifies logout button is visible
 
-**Example flow:**
-
-1. Navigate to login page
-2. Enter credentials from `.env` file
-3. Click login button
-4. Verify redirect to home page
-5. Verify logout button is visible
+2. ✅ **Failed login:** User sees an error message with invalid credentials
+   - Attempts login with wrong credentials
+   - Verifies error message appears
+   - Verifies user stays on login page
 
 #### Navigation Tests
 
@@ -161,84 +241,94 @@ Tests venue browsing and navigation functionality.
 **What it tests:**
 
 - ✅ Navigate to home page
-- ✅ Wait for venue list to load
-- ✅ Click the first venue
+- ✅ Wait for venue list to load from API
+- ✅ Click the first venue card
 - ✅ Verify venue details page loads with "Venue details" in the heading
 
-**Example flow:**
+### Running E2E Tests
 
-1. Navigate to home page (`/`)
-2. Wait for venue cards to load
-3. Click first venue card
-4. Verify URL contains `/venue/?id=`
-5. Verify heading contains "Venue details"
+**Prerequisites:**
 
-#### Running E2E Tests
+1. Install Playwright browsers (first time only):
 
-**Run all e2e tests:**
+   ```bash
+   npx playwright install
+   ```
+
+2. Make sure you have a web server running:
+   - **VS Code:** Use Live Server extension
+   - **Command line:** `npx serve . -p 5500`
+
+**Run tests:**
 
 ```bash
+# Run all tests (all 3 browsers)
 npm run test:e2e
-```
 
-**Run tests in UI mode (recommended for debugging):**
-
-```bash
+# Run tests in UI mode (recommended for development)
 npm run test:e2e:ui
-```
 
-**Run tests in headed mode (see browser):**
-
-```bash
+# Run tests in headed mode (see the browser)
 npm run test:e2e:headed
+
+# Run specific browser only
+npm run test:e2e -- --project=chromium
+npm run test:e2e -- --project=firefox
+npm run test:e2e -- --project=webkit
 ```
 
-**Show test report:**
+**Expected output:**
 
 ```bash
-npm run test:e2e:report
+Running 9 tests using 3 workers
+
+✓ [chromium] › login.spec.js:12:3 › User can successfully log in
+✓ [chromium] › login.spec.js:43:3 › User sees an error message
+✓ [chromium] › navigation.spec.js:4:3 › Navigate to home, wait for venue list
+✓ [firefox] › login.spec.js:12:3 › User can successfully log in
+✓ [firefox] › login.spec.js:43:3 › User sees an error message
+✓ [firefox] › navigation.spec.js:4:3 › Navigate to home, wait for venue list
+✓ [webkit] › login.spec.js:12:3 › User can successfully log in
+✓ [webkit] › login.spec.js:43:3 › User sees an error message
+✓ [webkit] › navigation.spec.js:4:3 › Navigate to home, wait for venue list
+
+  9 passed (7.6s)
 ```
 
-**Expected output when all tests pass:**
-
-```bash
-Running 3 tests using 3 workers
-
-  3 passed (6.9s)
-
-To open last HTML report run:
-  npx playwright show-report
-```
+---
 
 ## Technologies Used
 
 ### Core
 
-- HTML5
-- CSS3 (Tailwind CSS)
-- JavaScript (ES6+ Modules)
+- **HTML5** - Semantic markup
+- **CSS3** - Styling with Tailwind CSS utility classes
+- **JavaScript (ES6+)** - Modern JavaScript with modules
 
-### Build Tools
+### Build & Development Tools
 
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [**Tailwind CSS**](https://tailwindcss.com/) v3.4.12 - Utility-first CSS framework
+- [**serve**](https://www.npmjs.com/package/serve) v14.2.4 - Simple HTTP server for CI
 
-### Testings
+### Testing Frameworks
 
-- [Vitest](https://vitest.dev/) - Unit testing framework
-- [Playwright](https://playwright.dev/) - E2E testing framework
-- [jsdom](https://github.com/jsdom/jsdom) - Browser environment for unit testing
-- [dotenv](https://github.com/motdotla/dotenv) - Environment variable management
+- [**Vitest**](https://vitest.dev/) v3.2.4 - Fast unit testing framework
+- [**Playwright**](https://playwright.dev/) v1.56.0 - End-to-end testing across browsers
+- [**jsdom**](https://github.com/jsdom/jsdom) v27.0.0 - Browser environment for unit tests
+- [**dotenv**](https://github.com/motdotla/dotenv) v17.2.3 - Environment variable management
 
-### Code Quality
+### Code Quality Tools
 
-- [ESLint](https://eslint.org/) - JavaScript linting
-- [Prettier](https://prettier.io/) - Code formatting
-- [Husky](https://typicode.github.io/husky/) - Git hooks
-- [lint-staged](https://github.com/okonet/lint-staged) - Run linters on staged files
+- [**ESLint**](https://eslint.org/) v9.37.0 - JavaScript linting
+- [**Prettier**](https://prettier.io/) v3.6.2 - Code formatting
+- [**Husky**](https://typicode.github.io/husky/) v9.1.7 - Git hooks
+- [**lint-staged**](https://github.com/okonet/lint-staged) v16.2.4 - Run linters on staged files
 
 ### API
 
-- [Noroff API](https://docs.noroff.dev/docs/v2) - Backend API for venue bookings
+- [**Noroff API v2**](https://docs.noroff.dev/docs/v2) - Backend API for venue bookings
+
+---
 
 ## Project Structure
 
@@ -246,35 +336,43 @@ To open last HTML report run:
 workflow-repo-ca/
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml          # GitHub Actions workflow
+│       └── ci.yml              # GitHub Actions workflow
 ├── .husky/
-│   └── pre-commit              # Pre-commit hook
+│   └── pre-commit              # Pre-commit hook (runs lint-staged)
 ├── e2e/                        # E2E tests
 │   ├── login.spec.js           # Login functionality tests
 │   └── navigation.spec.js      # Navigation tests
 ├── js/
 │   ├── api/                    # API calls
+│   │   ├── auth/               # Authentication endpoints
+│   │   │   ├── login.js
+│   │   │   └── register.js
+│   │   └── venues/             # Venue endpoints
+│   │       ├── getVenue.js
+│   │       └── getVenues.js
 │   ├── constants/              # Constants and configuration
-│   │   └── config.js
+│   │   ├── config.js
+│   │   └── messages.js
 │   ├── listeners/              # Event listeners
 │   │   ├── auth/
 │   │   └── venues/
-│   ├── ui/                     # UI components
-│   │   └── common/
+│   ├── ui/                     # UI rendering components
+│   │   ├── common/
+│   │   └── venues/
 │   └── utils/                  # Utility functions
-│       ├── getUserName.js
-│       ├── getUserName.test.js
-│       ├── isActivePath.js
-│       ├── isActivePath.test.js
-│       ├── storage.js
-│       └── validation.js
+│       ├── getUserName.js      # Get logged-in user
+│       ├── getUserName.test.js # Unit tests
+│       ├── isActivePath.js     # Navigation active state
+│       ├── isActivePath.test.js # Unit tests
+│       ├── storage.js          # localStorage helpers
+│       └── validation.js       # Input validation
 ├── css/
-│   ├── input.css               # Tailwind input
-│   └── style.css               # Compiled CSS
+│   ├── input.css               # Tailwind input file
+│   └── style.css               # Compiled CSS output
 ├── login/
 │   └── index.html              # Login page
 ├── register/
-│   └── index.html              # Register page
+│   └── index.html              # Registration page
 ├── venue/
 │   └── index.html              # Venue detail page
 ├── .env                        # Environment variables (not in git)
@@ -282,62 +380,27 @@ workflow-repo-ca/
 ├── .gitignore                  # Git ignore rules
 ├── .prettierrc                 # Prettier configuration
 ├── eslint.config.mjs           # ESLint configuration
-├── index.html                  # Homepage
+├── favicon.ico                 # Site favicon
+├── index.html                  # Homepage (venue list)
 ├── package.json                # Dependencies and scripts
+├── package-lock.json           # Locked dependency versions
 ├── playwright.config.js        # Playwright configuration
 ├── tailwind.config.js          # Tailwind configuration
 ├── vitest.config.js            # Vitest configuration
 └── README.md                   # This file
 ```
 
-## Development Workflow
+---
 
-1. **Install dependencies:**
+## Contributors
 
-   ```bash
-   npm install
-   ```
+- **Sergiu Sarbu** - [@sergiu-sa](https://github.com/sergiu-sa)
+- **Muhammad Khan** - [@Hammadniazi](https://github.com/Hammadniazi)
 
-2. **Set up environment variables:**
-
-   ```bash
-   cp .env.example .env
-   # Edit .env with your credentials
-   ```
-
-3. **Start development server:**
-
-   ```bash
-   npm run dev
-   ```
-
-4. **Run tests:**
-
-   ```bash
-   npm test              # Unit tests
-   npm run test:e2e      # E2E tests
-   ```
-
-5. **Before committing:**
-   - Husky pre-commit hook will automatically:
-     - Format HTML files with Prettier
-     - Format and lint JavaScript files with Prettier and ESLint
-
-## Git Workflow
-
-This project uses Git hooks (via Husky) to ensure code quality:
-
-- **Pre-commit:** Automatically formats and lints staged files
-- **Staged files:** Only files you `git add` are checked
-
-**To commit:**
-
-```bash
-git add .
-git commit -m "Your commit message"
-# Husky will run prettier and eslint automatically
-```
+---
 
 ## License
 
 ISC
+
+---
