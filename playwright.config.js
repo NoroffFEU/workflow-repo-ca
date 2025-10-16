@@ -29,7 +29,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL: 'http://localhost:5500',
-    headless: false,
+    headless: true,
 
     // incase of random timeouts issues
     fullyParallel: false,
