@@ -3,12 +3,12 @@ export function renderVenueList(container, venues) {
     return "<div class='text-center'>No venues found</div>";
   }
 
-  const venueElements = venues.map((venue) => createVenueCard(venue));
+  const venueElements = venues.map(venue => createVenueCard(venue));
   container.innerHTML = "";
   container.append(...venueElements);
 }
 
-const createVenueCard = (venue) => {
+const createVenueCard = venue => {
   const { media, id } = venue;
 
   const card = document.createElement("a");
