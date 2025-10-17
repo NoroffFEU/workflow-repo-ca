@@ -4,12 +4,46 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch"
+    "lint": "eslint",
+    "format": "prettier --write .",
+    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "prepare": "husky",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:e2e": "playwright test tests",
+    "test:unit": "vitest --run",
+    "start": "live-server --port=5500"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "prettier --write",
+      "eslint"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ],
+    "*.html": [
+      "prettier --write"
+    ]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.37.0",
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.7.1",
+    "eslint": "^9.37.0",
+    "globals": "^16.4.0",
+    "live-server": "^1.2.2",
     "tailwindcss": "^3.4.12"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.4",
+    "prettier": "^3.6.2",
+    "vitest": "^3.2.4"
   }
 }
