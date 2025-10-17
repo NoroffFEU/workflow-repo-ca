@@ -1,7 +1,5 @@
-export const isActivePath = (href, currentPath) => {
-  if (href === "/") {
-    return currentPath === "/" || currentPath === "/index.html";
-  } else {
-    return currentPath.includes(href);
-  }
-};
+export function isActivePath(href, path) {
+  if (href === "/" && (path === "/" || path === "/index.html")) return true;
+  if (href === path) return true;
+  return path.startsWith(href);
+}

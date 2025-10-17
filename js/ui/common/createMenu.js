@@ -8,9 +8,7 @@ export function createMenu() {
 
   const createNavLink = (href, text) => {
     const isActive = isActivePath(href, currentPath) && text !== "Logo";
-    const activeClass = isActive
-      ? "text-blue-300"
-      : "text-white hover:text-blue-200";
+    const activeClass = isActive ? "text-blue-300" : "text-white hover:text-blue-200";
     return `<a href="${href}" class="${activeClass} py-2 px-3 font-medium transition-colors duration-200 ${
       isActive ? "font-bold" : ""
     }">${text}</a>`;

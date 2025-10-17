@@ -34,3 +34,9 @@ function getFromStorage(key) {
   const value = localStorage.getItem(key);
   return value ? JSON.parse(value) : null;
 }
+
+export const storageKey = userKey;
+
+export function getUserName() {
+  return getUsername();
+}
