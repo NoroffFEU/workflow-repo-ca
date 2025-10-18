@@ -1,7 +1,9 @@
-export const isActivePath = (href, currentPath) => {
+// js/utils/userInterface.js
+
+export function isActivePath(currentPath, href) {
   if (href === "/") {
     return currentPath === "/" || currentPath === "/index.html";
-  } else {
-    return currentPath.includes(href);
   }
-};
+
+  return currentPath === href || currentPath.includes(href);
+}
