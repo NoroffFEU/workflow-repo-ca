@@ -1,8 +1,8 @@
 export function validateEmail(email) {
-  const emailRegex = /^[^\s@]+@(stud\.noroff\.no|noroff\.no)$/;
+  if (typeof email !== "string") return false;
+  const emailRegex = /^[^\s@]*@(stud\.)?noroff\.no$/i;
   return emailRegex.test(email);
 }
-
 export function validatePassword(password) {
   return password.length >= 8;
 }
@@ -15,7 +15,7 @@ export function validateLoginForm(email, password) {
   }
 
   if (!validatePassword(password)) {
-    errors.push(`Password must be at least 8 characters long.`);
+    errors.push(`Password must be at least 8 characters.`);
   }
 
   return {
