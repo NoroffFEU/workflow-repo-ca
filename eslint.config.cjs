@@ -1,4 +1,3 @@
-// eslint.config.cjs
 const prettier = require("eslint-config-prettier");
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
