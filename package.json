@@ -1,15 +1,44 @@
 {
   "name": "workflow-repo",
   "version": "1.0.0",
-  "description": "",
+  "type": "module",
   "main": "index.js",
+  "license": "ISC",
   "scripts": {
-    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch"
+    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "prepare": "husky",
+    "test": "vitest run",
+    "test:ui": "vitest",
+    "start": "http-server -p 5173 -c-1 .",
+    "e2e": "playwright test",
+    "e2e:headed": "playwright test --headed",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "eslint . --ext .js,.ts --fix"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "tailwindcss": "^3.4.12"
+    "@playwright/test": "^1.56.1",
+    "dotenv": "^17.2.3",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-playwright": "^2.2.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-vitest": "^0.5.4",
+    "http-server": "^14.1.1",
+    "husky": "^9.1.7",
+    "jsdom": "^27.0.0",
+    "lint-staged": "^16.2.4",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^3.4.12",
+    "vitest": "^3.2.4"
+  },
+  "lint-staged": {
+    "*.html": "prettier --write",
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,json,md}": "prettier --write"
   }
 }
