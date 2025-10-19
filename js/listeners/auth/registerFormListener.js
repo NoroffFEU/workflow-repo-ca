@@ -15,11 +15,7 @@ async function handleRegisterSubmit(event) {
 
   try {
     await register(profile);
-    displayMessage(
-      messageContainer,
-      "success",
-      MESSAGES.en.registrationSuccess
-    );
+    displayMessage(messageContainer, "success", MESSAGES.en.registrationSuccess);
     form.reset();
   } catch (error) {
     displayMessage(messageContainer, "error", error.message);

@@ -20,7 +20,7 @@ async function handleLoginSubmit(event) {
 
   if (!validationResult.isValid) {
     const errorHtml = validationResult.errors
-      .map((error) => `<p class="text-red-500">${error}</p>`)
+      .map(error => `<p class="text-red-500">${error}</p>`)
       .join("");
     displayMessage(messageContainer, "error", errorHtml);
     return;
