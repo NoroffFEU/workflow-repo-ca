@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,13 +12,22 @@
     <header class="bg-green-800 text-white py-4">
       <nav id="menu-container" class="container mx-auto px-6"></nav>
     </header>
+
     <main class="container mx-auto mt-8">
       <h1 class="text-3xl font-bold mb-4">Welcome to this site</h1>
+
       <div
         id="venue-container"
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
       >
-        Loading...
+        <a
+          href="/venue/index.html?id=1"
+          data-testid="venue-card"
+          class="card block p-4 rounded-lg border border-gray-300 bg-white shadow-sm hover:shadow-md transition"
+        >
+          <h2 class="text-xl font-semibold mb-2">First venue</h2>
+          <p class="text-sm text-gray-600">Klikk for detaljer</p>
+        </a>
       </div>
     </main>
   </body>

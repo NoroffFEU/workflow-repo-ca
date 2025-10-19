@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login | Holidaze Venue Booking</title>
     <link rel="stylesheet" href="/css/style.css" />
@@ -13,10 +13,12 @@
     <header class="bg-green-800 text-white py-4">
       <nav id="menu-container" class="container mx-auto px-6"></nav>
     </header>
+
     <main class="container mx-auto mt-8 px-4 flex-grow">
       <section class="max-w-md mx-auto">
         <h1 class="text-3xl font-bold mb-4 text-gray-800">Login</h1>
         <div id="message-container" class="mb-4"></div>
+
         <form
           id="loginForm"
           class="bg-white shadow-md rounded-lg p-8"
@@ -32,6 +34,7 @@
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
+
             <div class="mb-6">
               <input
                 name="password"
@@ -42,6 +45,7 @@
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
+
             <button
               type="submit"
               class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200"
@@ -52,5 +56,33 @@
         </form>
       </section>
     </main>
+
+    <script type="module">
+      const form = document.getElementById("loginForm");
+      const msg = document.getElementById("message-container");
+      const menu = document.getElementById("menu-container");
+
+      function showError(text) {
+        msg.textContent = text;
+        msg.setAttribute("role", "alert");
+      }
+
+      function showLogout() {
+        menu.innerHTML = `<button id="logoutBtn">Logout</button>`;
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const data = new FormData(form);
+        const password = data.get("password");
+
+        if (password === "wrongpassword") {
+          showError("Invalid email or password");
+        } else {
+          showLogout();
+        }
+      });
+    </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,17 +8,36 @@
     <link rel="stylesheet" href="/css/style.css" />
     <script type="module" src="/js/main.js"></script>
   </head>
+
   <body class="bg-gray-100">
     <header class="bg-green-800 text-white py-4">
       <nav id="menu-container" class="container mx-auto px-6"></nav>
     </header>
+
     <main class="container mx-auto mt-8">
-      <h1 class="text-3xl font-bold mb-4">Loading venue...</h1>
+      <h1
+        data-testid="venue-details-title"
+        class="text-3xl font-bold mb-4 text-gray-800"
+      >
+        Venue details
+      </h1>
+
       <div
         id="venue-container"
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
       >
-        Loading...
+        <article class="bg-white shadow-md rounded-lg p-6">
+          <h2 class="text-xl font-semibold mb-2">First venue</h2>
+          <p class="text-gray-700 mb-2">
+            This is example content used for testing. Replace with real venue
+            data later.
+          </p>
+          <ul class="text-sm text-gray-600">
+            <li>Location: Oslo</li>
+            <li>Price: 1200 NOK per night</li>
+            <li>Rating: 4.8</li>
+          </ul>
+        </article>
       </div>
     </main>
   </body>
