@@ -11,7 +11,7 @@ export function validateLoginForm(email, password) {
   const errors = [];
 
   if (!validateEmail(email)) {
-    errors.push("Please enter a noroff.no or stud.noroff.no email address.");
+    errors.push('Please enter a noroff.no or stud.noroff.no email address.');
   }
 
   if (!validatePassword(password)) {
@@ -22,4 +22,10 @@ export function validateLoginForm(email, password) {
     isValid: errors.length === 0,
     errors: errors,
   };
+}
+export function isActivePath(currentPath, href) {
+  if (currentPath === href) return true;
+  if (href === '/' && (currentPath === '/' || currentPath === '/index.html')) return true;
+  if (currentPath.includes(href)) return true;
+  return false;
 }
