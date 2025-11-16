@@ -1,17 +1,19 @@
-import { getVenue } from "../../api/venues/getVenue.js";
-import { displayMessage } from "../../ui/common/displayMessage.js";
-import { updateMainHeading } from "../../ui/common/updateMainHeading.js";
-import { updateTitle } from "../../ui/common/updateTitle.js";
-import { renderVenue } from "../../ui/venues/renderVenue.js";
-import { getQueryParam } from "../../utils/getQueryParam.js";
+import { getVenue } from '../../api/venues/getVenue.js';
+import { displayMessage } from '../../ui/common/displayMessage.js';
+import { updateMainHeading } from '../../ui/common/updateMainHeading.js';
+import { updateTitle } from '../../ui/common/updateTitle.js';
+import { renderVenue } from '../../ui/venues/renderVenue.js';
+import { getQueryParam } from '../../utils/getQueryParam.js';
+import { CONFIG } from '../../config.js';
 
 export async function displayVenue() {
-  const id = getQueryParam("id");
+  const id = getQueryParam('id');
 
   if (!id) {
-    window.location.href = "/";
+    const redirect = `${CONFIG.basePath || ''}/index.html`.replace(/\/+/g, '/');
+    window.location.href = redirect;
   }
-  const container = document.querySelector("#venue-container");
+  const container = document.querySelector('#venue-container');
 
   try {
     const venue = await getVenue(id);
@@ -21,6 +23,6 @@ export async function displayVenue() {
     renderVenue(container, venue);
   } catch (error) {
     console.log(error);
-    displayMessage(container, "error", error.message);
+    displayMessage(container, 'error', error.message);
   }
 }

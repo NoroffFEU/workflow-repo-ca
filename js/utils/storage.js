@@ -1,5 +1,5 @@
-const tokenKey = "token";
-const userKey = "user";
+const tokenKey = 'token';
+const userKey = 'user';
 
 export function saveToken(token) {
   saveToStorage(tokenKey, token);
@@ -13,9 +13,14 @@ export function saveUser(user) {
   saveToStorage(userKey, user);
 }
 
-export function getUsername() {
+export function getUserName() {
   const user = getFromStorage(userKey);
   return user ? user.name : null;
+}
+
+// Backwards-compatible alias (some modules import getUsername)
+export function getUsername() {
+  return getUserName();
 }
 
 export function clearKey(key) {
