@@ -4,12 +4,45 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch"
+    "start": "vite",
+    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "rewrite": "npx prettier . --write",
+    "prepare": "husky install",
+    "unit": "vitest",
+    "e2e": "npx playwright test",
+    "e2e-headed": "npx playwright test --headed",
+    "e2e-debug": "npx playwright test --debug",
+    "e2e-report": "npx playwright show-report"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^24.10.1",
+    "@vitest/browser": "^4.0.15",
+    "dotenv": "^17.2.3",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "jsdom": "^27.2.0",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^3.4.12"
+  },
+  "lint-staged": {
+    "*.{js,css,md,html}": [
+      "prettier --write"
+    ],
+    "*.js": [
+      "prettier --write",
+      "eslint --cache --fix"
+    ]
+  },
+  "dependencies": {
+    "vite": "^7.2.6",
+    "vitest": "^4.0.15"
   }
 }
