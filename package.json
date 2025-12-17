@@ -1,15 +1,43 @@
 {
   "name": "workflow-repo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Workflow equips candidates with the ability to enhance productivity in a working environment.",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch"
+    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "prepare": "husky install",
+    "test:unit": "vitest",
+    "unit": "vitest",
+    "test:e2e": "npx playwright test --ui",
+    "e2e": "playwright test",
+    "start": "live-server --port=5500"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jørgen",
   "license": "ISC",
   "devDependencies": {
-    "tailwindcss": "^3.4.12"
+    "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.0",
+    "@vitest/browser": "^4.0.15",
+    "dotenv": "^17.2.3",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "happy-dom": "^20.0.11",
+    "jsdom": "^27.3.0",
+    "live-server": "^1.2.0",
+    "prettier": "^3.7.4",
+    "tailwindcss": "^3.4.12",
+    "vitest": "^4.0.15"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --cache --fix"
+    ],
+    "*.{js,css,md}": "prettier --write",
+    "*.html": [
+      "prettier --write"
+    ]
   }
 }
