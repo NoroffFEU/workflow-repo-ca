@@ -8,6 +8,7 @@ async function handleLoginSubmit(event) {
   const form = event.target;
 
   const messageContainer = document.querySelector("#message-container");
+
   const fieldset = form.querySelector("fieldset");
   const submitButton = form.querySelector('button[type="submit"]');
 

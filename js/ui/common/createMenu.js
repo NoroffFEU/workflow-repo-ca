@@ -1,5 +1,5 @@
 import { getUsername } from "../../utils/storage.js";
-import { isActivePath } from "../../utils/userInterface.js";
+import { isActivePath } from "../../utils/isActivePath.js";
 
 export function createMenu() {
   const container = document.querySelector("#menu-container");
@@ -7,7 +7,7 @@ export function createMenu() {
   const username = getUsername();
 
   const createNavLink = (href, text) => {
-    const isActive = isActivePath(href, currentPath) && text !== "Logo";
+    const isActive = isActivePath(currentPath, href) && text !== "Logo";
     const activeClass = isActive
       ? "text-blue-300"
       : "text-white hover:text-blue-200";

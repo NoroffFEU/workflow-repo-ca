@@ -1,0 +1,11 @@
+import { defineConfig } from "@playwright/test";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+export default defineConfig({
+  testDir: "./test",
+  use: {
+    baseURL: "http://127.0.0.1:5500",
+  },
+});
