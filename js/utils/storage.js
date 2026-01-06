@@ -18,6 +18,8 @@ export function getUsername() {
   return user ? user.name : null;
 }
 
+export const getUserName = getUsername;
+
 export function clearKey(key) {
   localStorage.removeItem(key);
 }
