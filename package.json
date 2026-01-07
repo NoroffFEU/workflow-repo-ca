@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "lint-staged": {
+    "**/*.{js,mjs}": "eslint --fix",
+    "**/*.html": "prettier --write"
+  },
   "scripts": {
     "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
     "lint": "eslint .",
@@ -20,6 +24,7 @@
     "eslint-plugin-prettier": "^5.5.4",
     "globals": "^17.0.0",
     "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
     "tailwindcss": "^3.4.12"
   }
