@@ -8,4 +8,10 @@ describe("isActivePath", () => {
         const result = isActivePath(href, currentPath);
         expect(result).toBe(true);
     });
+
+    it("returns true for root path (/) when path is / or /index.html", () => {
+        const href = "/";
+        expect(isActivePath(href, "/")).toBe(true);
+        expect(isActivePath(href, "/index.html")).toBe(true);
+    });
 });
