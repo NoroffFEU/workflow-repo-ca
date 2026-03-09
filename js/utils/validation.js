@@ -11,7 +11,7 @@ export function validateLoginForm(email, password) {
   const errors = [];
 
   if (!validateEmail(email)) {
-    errors.push("Please enter a noroff.no or stud.noroff.no email address.");
+    errors.push('Please enter a noroff.no or stud.noroff.no email address.');
   }
 
   if (!validatePassword(password)) {
@@ -20,6 +20,6 @@ export function validateLoginForm(email, password) {
 
   return {
     isValid: errors.length === 0,
-    errors: errors,
+    errors: errors
   };
 }
