@@ -1,1 +1,12 @@
 node_modules/
+
+# Generated from .env by scripts/generate-config.mjs
+js/config.js
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+.env
