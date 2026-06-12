@@ -1,7 +1,7 @@
 import { CONFIG } from "../../config.js";
 
 export async function register(user) {
-  const url = `${CONFIG.apiUrl}auth/register`;
+  const url = `${CONFIG.apiBase}auth/register`;
 
   const options = {
     method: "POST",
@@ -18,5 +18,5 @@ export async function register(user) {
     throw new Error("Sorry, sign up failed.");
   }
 
-  return json;
+  return json.data;
 }
