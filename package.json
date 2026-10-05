@@ -1,15 +1,49 @@
 {
-  "name": "workflow-repo",
+  "name": "workflow-repo-ca",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch"
+    "prepare": "husky install",
+    "dev": "vite",
+    "lint": "eslint .",
+    "test": "vitest",
+    "e2e": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrontEndExplorer-90/workflow-repo-ca.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrontEndExplorer-90/workflow-repo-ca/issues"
+  },
+  "homepage": "https://github.com/FrontEndExplorer-90/workflow-repo-ca#readme",
+  "dependencies": {
+    "react": "^19.2.0"
+  },
   "devDependencies": {
-    "tailwindcss": "^3.4.12"
+    "@eslint/js": "^9.37.0",
+    "@playwright/test": "^1.56.0",
+    "dotenv": "^17.2.3",
+    "eslint": "^9.37.0",
+    "globals": "^13.24.0",
+    "husky": "^9.1.7",
+    "playwright": "^1.56.0",
+    "prettier": "^3.6.2",
+    "vite": "^7.1.9",
+    "vitest": "^3.2.4"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{js,css,md}": [
+      "prettier --write"
+    ]
   }
 }
