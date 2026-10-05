@@ -14,7 +14,7 @@ export async function displayVenue() {
   const container = document.querySelector("#venue-container");
 
   try {
-    const venue = await getVenue(id);
+    const { data: venue } = await getVenue(id);
     const { name } = venue;
     updateMainHeading(name);
     updateTitle(name);
