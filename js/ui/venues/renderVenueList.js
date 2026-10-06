@@ -10,7 +10,6 @@ export function renderVenueList(container, venues) {
 }
 
 const createVenueCard = (venue) => {
-  console.log("venue -->", venue);
   const { media, id } = venue;
 
   const card = document.createElement("a");
